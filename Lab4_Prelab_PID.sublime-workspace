@@ -523,7 +523,7 @@
 			"file": "Lab4_Prelab_PID.ino",
 			"settings":
 			{
-				"buffer_size": 678,
+				"buffer_size": 1085,
 				"line_ending": "Unix"
 			}
 		}
@@ -796,6 +796,7 @@
 	],
 	"file_history":
 	[
+		"/Users/arthurlockman/Documents/Codebase/RBE2001_Code/Lab4_Prelab_PID/Lab4_Prelab_PID.sublime-project",
 		"/Users/arthurlockman/Documents/Arduino/Lab4_Prelab_PID/Lab4_Prelab_PID.ino",
 		"/Users/arthurlockman/Dropbox/WPI/A-Term 2014/RBE 2001 Project/Labs/Lab 3/Code/Lab3_part3/Lab3_part3.ino",
 		"/Users/arthurlockman/Documents/Codebase/RBE2001_Code/Homework_3/TimerOne.h",
@@ -922,8 +923,7 @@
 		"/Volumes/Catalyst_One/Field Study Support/FS1 - Data/Oxford_Hills/CatOneLogs/CatOne_CAT1VE6012/CATONE_CAT1VE6012_20140620_134259_SUMMARY.json",
 		"/Volumes/Catalyst_One/Field Study Support/FS1 - Data/Oxford_Hills/CatOneLogs/CatOne_CAT1VE6012/CATONE_CAT1VE6012_20140620_133140_SUMMARY.json",
 		"/Volumes/Catalyst_One/Field Study Support/FS1 - Data/Oxford_Hills/CatOneLogs/CatOne_CAT1VE6012/CATONE_CAT1VE6012_20140620_131838_SUMMARY.json",
-		"/Volumes/Catalyst_One/Field Study Support/FS1 - Data/Oxford_Hills/CatOneLogs/CatOne_CAT1VE6012/CATONE_CAT1VE6012_20140619_101753_SUMMARY.json",
-		"/Volumes/Catalyst_One/Field Study Support/FS1 - Data/Oxford_Hills/CatOneLogs/CatOne_CAT1VE6012/CATONE_CAT1VE6012_20140619_095401_SUMMARY.json"
+		"/Volumes/Catalyst_One/Field Study Support/FS1 - Data/Oxford_Hills/CatOneLogs/CatOne_CAT1VE6012/CATONE_CAT1VE6012_20140619_101753_SUMMARY.json"
 	],
 	"find":
 	{
@@ -1105,15 +1105,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 678,
+						"buffer_size": 1085,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								372,
-								372
+								1084,
+								1084
 							]
 						],
 						"settings":
@@ -1344,7 +1344,7 @@
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 201.0,

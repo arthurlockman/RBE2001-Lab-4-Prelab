@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "TimerOne.h"
+#include "Encoder.h"
 
 int kP = 0.0;
 int kI = 0.0;
@@ -17,8 +17,6 @@ volatile int m_setpoint;
 void setup() 
 {
 	Serial.begin(115200);
-	Timer1.initialize(kPIDPeriod);
-	Timer1.attachInterrupt(updateOutput);
 	m_setpoint = 100;
 }
 
@@ -50,10 +48,11 @@ void loop()
 	}
 }
 
-void updateOutput()
+int calculatePID(int input)
 {
 	int err = m_setpoint - input;
 	m_i += err;
 	output = kP * err + kI * (m_i) + kD * (input - m_d);
 	m_d = input;
+	return output;
 }
