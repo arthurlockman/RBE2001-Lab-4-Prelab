@@ -1,23 +1,30 @@
 #include "Arduino.h"
 #include "Encoder.h"
+#include "Servo.h"
 
 int kP = 0.0;
 int kI = 0.0;
 int kD = 0.0;
 int kPIDPeriod = 50;
 
-volatile int input;
-volatile int output;
+int input;
+int output;
 
-volatile int m_p;
-volatile int m_i;
-volatile int m_d;
-volatile int m_setpoint;
+int m_p;
+int m_i;
+int m_d;
+int m_setpoint;
+
+Servo motor;
+
+static const int kServoPin = 22;
+static const int kPotPin = 0;
 
 void setup() 
 {
 	Serial.begin(115200);
 	m_setpoint = 100;
+	motor.attach(kServoPin);
 }
 
 void loop() 
@@ -46,6 +53,8 @@ void loop()
 			Serial.println("Unrecognized value.");
 		}
 	}
+	input = analogRead(kPotPin);
+	motor.write(calculatePID(input));
 }
 
 int calculatePID(int input)
