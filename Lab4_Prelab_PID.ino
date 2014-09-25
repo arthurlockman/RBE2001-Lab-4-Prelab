@@ -1,23 +1,22 @@
 #include "Arduino.h"
 #include "Servo.h"
+#include "TimerOne.h"
 
 int kP = 0.0;
 int kI = 0.0;
 int kD = 0.0;
 int kPIDPeriod = 50;
 
-int input;
-int output;
+volatile int input;
+volatile int output;
 
-int m_p;
-int m_i;
-int m_d;
-int m_setpoint;
+volatile int m_p;
+volatile int m_i;
+volatile int m_d;
+volatile int m_setpoint;
 
 int kPotMax = 500;
 int kPotMin = 170;
-int kMotorMin = 0;
-int kMotoMax = 180;
 
 static const int kMotorForward = 22;
 static const int kMotorReverse = 23;
@@ -28,6 +27,8 @@ void setup()
 	Serial.begin(115200);
 	m_setpoint = 100;
 	pinMode(kPotPin, INPUT);
+	Timer1.initialize(kPIDPeriod);
+	Timer1.attachInterrupt(calculatePID);
 }
 
 void loop() 
@@ -61,18 +62,19 @@ void loop()
 			Serial.println("Unrecognized value.");
 		}
 	}
-	input = analogRead(kPotPin);
 	Serial.println(input);
 	delay(100);
 }
 
-int calculatePID(int input)
+void calculatePID()
 {
+	input = analogRead(kPotPin);
 	int err = m_setpoint - input;
 	m_i += err;
 	output = kP * err + kI * (m_i) + kD * (input - m_d);
 	m_d = input;
-	return (output >= 255)? 255 : (output <= -255)? -255 : output;
+	output = (output >= 255)? 255 : (output <= -255)? -255 : output;
+	writeToMotor(output);
 }
 
 void writeToMotor(int input)
